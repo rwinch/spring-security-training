@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Home</title>
+</head>
+
+<body>
+	<h1 id="greeting" th:inline="text">Hello [[${currentUser.firstName}]] [[${currentUser.lastName}]]</h1>
+	<div>
+		<form th:action="@{/logout}" method="post">
+			<input type="submit" value="Log Out" id="logout"/>
+		</form>
+	</div>
+</body>
+
+
+</html>

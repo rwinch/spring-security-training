@@ -1,0 +1,1 @@
+insert into myuser(id,firstName,lastName,username,password) values(1,'Rob','Winch','user','$2a$04$Xy6kb5vy9ei/a2NiunJwkuVj2M3.YPthIiVzXynpyHLiBgIWFgefK');
