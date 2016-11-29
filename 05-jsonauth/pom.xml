@@ -11,7 +11,7 @@
 	</parent>
 
 	<groupId>org.springframework.security</groupId>
-	<artifactId>09-jsonauth</artifactId>
+	<artifactId>05-jsonauth</artifactId>
 	<packaging>war</packaging>
 	<version>1.0.0.BUILD-SNAPSHOT</version>
 	<properties>
