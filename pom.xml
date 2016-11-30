@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>org.springframework.security</groupId>
+	<artifactId>spring-security-training</artifactId>
+	<packaging>pom</packaging>
+	<version>1.0.0.BUILD-SNAPSHOT</version>
+	<modules>
+		<module>01-filters</module>
+		<module>02-hellosecurity</module>
+		<module>03-intercepturl</module>
+		<module>04-formlogin</module>
+		<module>05-jsonauth</module>
+		<module>06-passwordencoder</module>
+		<module>07-userdetailsservice</module>
+		<module>08-customuser</module>
+		<module>09-csrf</module>
+		<module>10-headers</module>
+		<module>11-method</module>
+	</modules>
+
+</project>

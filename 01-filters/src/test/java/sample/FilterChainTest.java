@@ -6,6 +6,7 @@ import javax.servlet.FilterChain;
 
 import org.junit.Before;
 import org.junit.Test;
+import org.springframework.mock.web.MockFilterChain;
 import org.springframework.mock.web.MockHttpServletRequest;
 import org.springframework.mock.web.MockHttpServletResponse;
 
@@ -25,6 +26,7 @@ public class FilterChainTest {
 		// FIXME implement FilterChain (do not use existing implementation)
 		// Should use Filter1, Filter2, and TheServlet (in
 		// that order)
+		chain = new MockFilterChain(new TheServlet(), new Filter1(), new Filter2());
 	}
 
 	@Test
