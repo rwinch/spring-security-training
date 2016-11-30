@@ -1,5 +1,10 @@
 package sample.prepost;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
+import java.util.Arrays;
+import java.util.List;
+
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -87,5 +92,36 @@ public class ServiceImplTests {
 	@Test
 	public void isValueEvenWhenEvenThenAllowed() {
 		service.isValueEven("ab");
+	}
+
+	@WithUser
+	@Test
+	public void messageForCurrentUserWhenWithUserAndUserThenAllowed() {
+		service.messageForCurrentUser("user");
+	}
+
+	@WithAdmin
+	@Test(expected = AccessDeniedException.class)
+	public void messageForCurrentUserWhenWithAdminAndUserThenDenied() {
+		service.messageForCurrentUser("user");
+	}
+
+	@WithUser
+	@Test(expected = AccessDeniedException.class)
+	public void messageForCurrentUserWhenWithUserAndAdminThenDenied() {
+		service.messageForCurrentUser("admin");
+	}
+
+	@WithAdmin
+	@Test
+	public void messageForCurrentUserWhenWithAdminAndAdminThenAllowed() {
+		service.messageForCurrentUser("admin");
+	}
+
+	@WithUser
+	@Test
+	public void onlyAllowedEvensWhenEvensAndOddsThenEvens() {
+		List<Integer> evensOnly = service.onlyAllowedEvens(Arrays.asList(8,7,2,3,1,9));
+		assertThat(evensOnly).containsOnly(8,2);
 	}
 }

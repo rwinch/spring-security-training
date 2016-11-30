@@ -1,5 +1,8 @@
 package sample.prepost;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class ServiceImpl implements Service {
 
 	@Override
@@ -28,5 +31,15 @@ public class ServiceImpl implements Service {
 
 	@Override
 	public void isValueEven(String value) {
+	}
+
+	@Override
+	public String messageForCurrentUser(String username) {
+		return "Hello " + username;
+	}
+
+	@Override
+	public List<Integer> onlyAllowedEvens(List<Integer> numbers) {
+		return new ArrayList<>(numbers);
 	}
 }
