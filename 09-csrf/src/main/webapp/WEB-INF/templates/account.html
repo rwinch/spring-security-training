@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Account</title>
+</head>
+
+<body>
+
+<body>
+	<p id="balance" th:inline="text">Your balance is [[${balance}]]</p>
+	<div>
+		<form th:action="@{/account/transfer}" method="post">
+			<input type="text" name="ammount"/>
+			<input type="submit" value="Transfer" id="transfer"/>
+		</form>
+	</div>
+</body>
+
+</body>
+
+
+</html>

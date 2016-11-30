@@ -1,0 +1,13 @@
+<script>
+  function process(a) {
+    alert('Done Processing: ' + a);
+  }
+</script>
+<h1><c:out value="${message.summary}"/></h1>
+<p>
+  ${message.text}
+</p>
+<p>
+  <a href="#" 
+    onclick="process('<c:out value="${message.text}"/>')">Process Text</a>
+</p>
