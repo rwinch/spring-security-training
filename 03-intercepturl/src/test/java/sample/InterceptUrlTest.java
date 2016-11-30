@@ -26,6 +26,8 @@ import sample.security.WithUser;
 public class InterceptUrlTest {
 
 	public static final String ROB = "rob";
+	public static final String ODD = "a";
+	public static final String EVEN = "ab";
 	public static final String OTHER = "/other";
 	public static final String SECRET = "/secret";
 	public static final String ADMIN_FOO = "/admin/foo";
@@ -116,32 +118,56 @@ public class InterceptUrlTest {
 
 	@Test
 	public void robUnAuthenticatedUser() throws Exception {
-		mockMvc.perform(get(user(ROB)))
+		mockMvc.perform(get(emails(ROB)))
 			.andExpect(status().isUnauthorized());
 	}
 
 	@Test
 	@WithUser
 	public void robWithUser() throws Exception {
-		mockMvc.perform(get(user(ROB)))
+		mockMvc.perform(get(emails(ROB)))
 			.andExpect(status().isForbidden());
 	}
 
 	@Test
 	@WithAdmin
 	public void robWithAdmin() throws Exception {
-		mockMvc.perform(get(user(ROB)))
+		mockMvc.perform(get(emails(ROB)))
 			.andExpect(status().isForbidden());
 	}
 
 	@Test
 	@WithRob
 	public void robWithRob() throws Exception {
-		mockMvc.perform(get(user(ROB)))
+		mockMvc.perform(get(emails(ROB)))
 			.andExpect(status().isOk());
 	}
 
-	private static String user(String username) {
+	@Test
+	public void phonesWhenOddAndNotAuthenticatedThenUnauthorized() throws Exception {
+		mockMvc.perform(get(phones(ODD)))
+			.andExpect(status().isOk());
+	}
+
+	@Test
+	@WithUser
+	public void phonesWhenOddAndWithUserThenOk() throws Exception {
+		mockMvc.perform(get(phones(ODD)))
+			.andExpect(status().isOk());
+	}
+
+	@Test
+	@WithAdmin
+	public void phonesWhenEvenAndWithUserThenUnauthorized() throws Exception {
+		mockMvc.perform(get(phones(EVEN)))
+			.andExpect(status().isForbidden());
+	}
+
+	private static String emails(String username) {
 		return "/users/"+username+"/emails";
+	}
+
+	private static String phones(String username) {
+		return "/users/"+username+"/phones";
 	}
 }
