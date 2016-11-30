@@ -1,14 +1,16 @@
 package sample.mvc;
 
-import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ModelAttribute;
+
+import sample.data.MyUser;
+import sample.security.CurrentUser;
 
 @ControllerAdvice
 public class SecurityControllerAdvice {
 
 	@ModelAttribute("currentUser")
-	Object currentUser(Authentication currentUser) {
-		return currentUser == null ? null : currentUser.getPrincipal();
+	MyUser currentUser(@CurrentUser MyUser currentUser) {
+		return currentUser;
 	}
 }
