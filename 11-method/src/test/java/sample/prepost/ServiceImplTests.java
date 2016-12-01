@@ -8,10 +8,14 @@ import java.util.List;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.security.access.AccessDeniedException;
+import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import sample.security.Authz;
 import sample.security.WithAdmin;
 import sample.security.WithDba;
 import sample.security.WithUser;
@@ -123,5 +127,19 @@ public class ServiceImplTests {
 	public void onlyAllowedEvensWhenEvensAndOddsThenEvens() {
 		List<Integer> evensOnly = service.onlyAllowedEvens(Arrays.asList(8,7,2,3,1,9));
 		assertThat(evensOnly).containsOnly(8,2);
+	}
+
+	@Configuration
+	@EnableGlobalMethodSecurity(prePostEnabled = true)
+	static class Config {
+		@Bean
+		Authz authz() {
+			return new Authz();
+		}
+
+		@Bean
+		ServiceImpl service() {
+			return new ServiceImpl();
+		}
 	}
 }
