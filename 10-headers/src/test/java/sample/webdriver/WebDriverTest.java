@@ -16,6 +16,7 @@ import org.springframework.test.web.servlet.htmlunit.webdriver.MockMvcHtmlUnitDr
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
 
+import sample.SpringConfig;
 import sample.security.WithAdmin;
 import sample.security.WithUser;
 import sample.webdriver.pages.AccountPage;
@@ -23,7 +24,7 @@ import sample.webdriver.pages.HomePage;
 import sample.webdriver.pages.LoginPage;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration("file:src/main/webapp/WEB-INF/spring/*.xml")
+@ContextConfiguration(classes = SpringConfig.class)
 @WebAppConfiguration
 public class WebDriverTest {
 	@Autowired
