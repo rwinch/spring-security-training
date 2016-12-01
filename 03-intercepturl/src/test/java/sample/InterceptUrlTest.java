@@ -21,7 +21,7 @@ import sample.security.WithRob;
 import sample.security.WithUser;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration("file:src/main/webapp/WEB-INF/spring/*.xml")
+@ContextConfiguration(classes = SpringConfig.class)
 @WebAppConfiguration
 public class InterceptUrlTest {
 

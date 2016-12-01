@@ -28,7 +28,7 @@ import sample.security.WithUser;
 import sample.webdriver.pages.HomePage;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration("file:src/main/webapp/WEB-INF/spring/*.xml")
+@ContextConfiguration(classes = SpringConfig.class)
 @WebAppConfiguration
 public class HomeControllerTest {
 	@Autowired

@@ -13,8 +13,10 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.context.web.WebAppConfiguration;
 
+import sample.SpringConfig;
+
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration("file:src/main/webapp/WEB-INF/spring/*.xml")
+@ContextConfiguration(classes = SpringConfig.class)
 @WebAppConfiguration
 public class MyUserDetailsServiceTest {
 	@Autowired
