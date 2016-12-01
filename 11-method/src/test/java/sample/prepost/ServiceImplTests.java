@@ -130,7 +130,7 @@ public class ServiceImplTests {
 	}
 
 	@Configuration
-	@EnableGlobalMethodSecurity(prePostEnabled = true)
+	// FIXME enable method security
 	static class Config {
 		@Bean
 		Authz authz() {

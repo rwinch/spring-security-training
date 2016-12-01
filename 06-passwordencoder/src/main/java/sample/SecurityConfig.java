@@ -14,10 +14,7 @@ import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 @EnableWebSecurity
 public class SecurityConfig {
 
-	@Bean
-	public BCryptPasswordEncoder passswordEncoder() {
-		return new BCryptPasswordEncoder();
-	}
+	// FIXME register BCryptPasswordEncoderBean
 
 	@Bean
 	public UserDetailsService userDetailsService() {

@@ -26,7 +26,6 @@ public class FilterChainTest {
 		// FIXME implement FilterChain (do not use existing implementation)
 		// Should use Filter1, Filter2, and TheServlet (in
 		// that order)
-		chain = new MockFilterChain(new TheServlet(), new Filter1(), new Filter2());
 	}
 
 	@Test

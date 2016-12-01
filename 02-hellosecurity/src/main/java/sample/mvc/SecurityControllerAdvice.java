@@ -10,6 +10,7 @@ public class SecurityControllerAdvice {
 
 	@ModelAttribute("username")
 	String username(Principal principal) {
-		return principal == null ? null : principal.getName();
+		// FIXME return the principal.getName() to populate the username attribute
+		return null;
 	}
 }

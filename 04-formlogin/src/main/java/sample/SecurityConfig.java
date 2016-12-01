@@ -20,9 +20,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 			.authorizeRequests()
 				.anyRequest().authenticated()
 				.and()
-			.formLogin()
-				.loginPage("/login")
-				.permitAll();
+			// FIXME register a custom log in page
+			.formLogin();
 	}
 
 	@Bean

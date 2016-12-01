@@ -8,7 +8,8 @@
 <body>
 
 <body>
-	<h1 id="greeting" th:inline="text">Hello [[${username}]]</h1>
+	<!-- FIXME add [[${username}]] to h1 text to display the username -->
+	<h1 id="greeting" th:inline="text">Hello </h1>
 	<div>
 		<form th:action="@{/logout}" method="post">
 			<input type="submit" value="Log Out" id="logout"/>

@@ -7,7 +7,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Component;
 
-@Component
+// FIXME expose this as a Bean
 public class MyUserDetailsService implements UserDetailsService {
 	/**
 	 * BCrypt password
@@ -16,10 +16,11 @@ public class MyUserDetailsService implements UserDetailsService {
 
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+		// FIXME implement method
 		if("missing".equals(username)) {
-			throw new UsernameNotFoundException("Not Found");
+
 		}
-		return new User(username, BCRYPT_PASSWORD, AuthorityUtils.createAuthorityList("ROLE_USER"));
+		return null;
 	}
 
 }

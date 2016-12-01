@@ -13,9 +13,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
-/**
- * Handles requests for the application home page.
- */
 @Controller
 public class LoginController {
 	private static final ResponseEntity<String> VALID = new ResponseEntity<String>("Success", HttpStatus.OK);
@@ -32,11 +29,10 @@ public class LoginController {
 		}
 		String password = user.getPassword();
 		if("password".equals(password)) {
-			SecurityContext context = SecurityContextHolder.createEmptyContext();
+			// FIXME Authenticate the user
 			List<GrantedAuthority> authorities = AuthorityUtils.createAuthorityList("ROLE_USER");
-			UsernamePasswordAuthenticationToken authentication = new UsernamePasswordAuthenticationToken(username, password, authorities);
-			context.setAuthentication(authentication);
-			SecurityContextHolder.setContext(context);
+			SecurityContext context = null;
+			UsernamePasswordAuthenticationToken authentication = null;
 			return VALID;
 		}
 		return INVALID;

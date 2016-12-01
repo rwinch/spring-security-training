@@ -19,6 +19,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http
+			// FIXME add headers back
+			.headers().disable()
 			.authorizeRequests()
 				.anyRequest().authenticated()
 				.and()

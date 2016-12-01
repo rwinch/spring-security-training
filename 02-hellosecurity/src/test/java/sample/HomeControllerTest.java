@@ -35,8 +35,8 @@ public class HomeControllerTest {
 
 	@Before
 	public void setup() {
+		// FIXME apply Spring Security
 		mockMvc = MockMvcBuilders.webAppContextSetup(context)
-				.apply(springSecurity())
 				.build();
 	}
 
@@ -49,35 +49,39 @@ public class HomeControllerTest {
 	@Test
 	public void loginSuccess() throws Exception {
 		// default user / password
-		mockMvc.perform(formLogin())
-			.andExpect(authenticated());
+		// FIXME use formLogin() to log in with user / password
+		mockMvc.perform(null)
+		// FIXME verify that the user is authenticated()
+			.andExpect(null);
 	}
 
 	@Test
 	public void loginMissingUser() throws Exception {
+		// FIXME customize login to use username of "missing"
 		FormLoginRequestBuilder login =
-				formLogin().user("missing");
+				formLogin();
 		mockMvc.perform(login)
-			.andExpect(unauthenticated());
+		// FIXME verify the unauthenticated()
+			.andExpect(null);
 	}
 
 	@Test
 	public void loginInvalidPassword() throws Exception {
+		// FIXME customize login to use password of "secret"
 		FormLoginRequestBuilder login =
 				formLogin().password("secret");
 		mockMvc.perform(login)
+		// FIXME verify the unauthenticated()
 			.andExpect(unauthenticated());
 	}
 
 	@Test
-	@WithUser
 	public void user() throws Exception {
 		mockMvc.perform(get("/"))
 			.andExpect(content().string(containsString("Hello user")));
 	}
 
 	@Test
-	@WithAdmin
 	public void admin() throws Exception {
 		mockMvc.perform(get("/"))
 			.andExpect(content().string(containsString("Hello admin")));

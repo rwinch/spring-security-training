@@ -80,14 +80,12 @@ public class WebDriverTest {
 	}
 
 	@Test
-	@WithUser
 	public void indexWhenAccessWithUser() throws Exception {
 		HomePage home = HomePage.to(driver);
 		home.assertGreetingFor("user");
 	}
 
 	@Test
-	@WithAdmin
 	public void indexWhenAccessWithAdmin() throws Exception {
 		HomePage home = HomePage.to(driver);
 		home.assertGreetingFor("admin");

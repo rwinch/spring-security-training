@@ -20,9 +20,7 @@ public class MyUserDetailsService implements UserDetailsService {
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 		MyUser myUser = myUserRepository.findByUsername(username);
-		if(myUser == null) {
-			throw new UsernameNotFoundException("Oops");
-		}
-		return new MyUserDetails(myUser);
+		// FIXME leverage MyUser to return an object that is both MyUser and UserDetails
+		return null;
 	}
 }

@@ -11,11 +11,12 @@
 	<div th:if="${param.logout}">
 		You have been logged out.
 	</div>
+		<!-- FIXME correct the request -->
 		<label for="username">Username</label>
 		<input type="text"
-			id="username" name="username" />
+			id="username" name="un" />
 		<label for="password">Password</label>
-		<input type="password" id="password" name="password" />
+		<input type="password" id="pwd" name="password" />
 	<div>
 		<button type="submit">Log in</button>
 	</div>

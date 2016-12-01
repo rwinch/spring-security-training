@@ -17,11 +17,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	protected void configure(HttpSecurity http) throws Exception {
 		http
 			.authorizeRequests()
-				.mvcMatchers("/secret").hasRole("ADMIN")
-				.mvcMatchers("/admin/**").hasRole("ADMIN")
-				.mvcMatchers("/users/{username}/emails").access("authentication?.name == #username")
-				.mvcMatchers("/users/{username}/phones").access("@authz.isOdd(#username)")
-				.mvcMatchers("/public/**").permitAll()
+				// FIXME add additional rules to fix the tests
 				.anyRequest().authenticated()
 				.and()
 			.httpBasic();
